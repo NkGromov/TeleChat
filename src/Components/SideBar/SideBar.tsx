@@ -1,6 +1,6 @@
 import Burger from "../Buttons/Burger";
 import ChatsList from "../ChatsList/ChatsList";
-import Input from "../Inputs/Input";
+import SingleInput from "../Forms/SingleInput";
 import { BurgerWrapper, SearshWrapper, SideBarWrapper } from "./SideBarStyle";
 
 const SideBar = () => {
@@ -10,7 +10,7 @@ const SideBar = () => {
                 <BurgerWrapper>
                     <Burger />
                 </BurgerWrapper>
-                <Input type="text" value="text" name="name" color="#fff" onChange={"d"}></Input>
+                <SingleInput color="#fff" />
             </SearshWrapper>
             <ChatsList />
         </SideBarWrapper>

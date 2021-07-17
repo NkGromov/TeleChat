@@ -3,10 +3,9 @@ import styled from "styled-components";
 export const MessagesList = styled.ul`
     padding: 20px;
     background-color: #1b3650;
-    overflow: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    overflow-y: auto;
+    max-height: 840px;
+    height: inherit;
 `;
 
 export const Message = styled.li`
@@ -26,5 +25,5 @@ export const Message = styled.li`
 `;
 export const MyMessage = styled(Message)`
     background-color: #4890d47f;
-    align-self: flex-end;
+    float: right;
 `;

@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
-export const ChatList = styled.ul``;
+export const ChatList = styled.ul`
+    max-height: 890px;
+    overflow-y: auto;
+`;
 export const ChatItem = styled.li``;
 export const ChatButton = styled.button`
     padding: 20px;

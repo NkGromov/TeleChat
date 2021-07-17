@@ -6,10 +6,12 @@ export const ChatWrapper = styled.div<{ isActive: boolean }>`
     right: 0;
     transform: ${(props) => (props.isActive ? "translateX(0);" : "translateX(100%)")};
     display: grid;
-    grid-template-rows: 1fr 12fr 1fr;
+    grid-template-rows: 65px 12fr 1fr;
+    height: 100vh;
 `;
-export const TopChat = styled.div`
+export const Border = styled.div`
     padding: 20px 20px 20px;
     background-color: #254b6e;
     max-height: 65px;
+    display: flex;
 `;

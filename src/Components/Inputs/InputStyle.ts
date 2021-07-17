@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Inp = styled.input.attrs((props) => ({
-    type: props.type,
+    type: props.type || "text",
     name: props.name,
     value: props.value,
     onChange: props.onChange,
@@ -11,7 +11,7 @@ export const Inp = styled.input.attrs((props) => ({
     padding: 5px 10px;
     font-size: 16px;
     border-radius: 5px;
-    height: 40px;
+    height: ${(props) => props.height || "initial"};
 `;
 
 export const InputWrapper = styled.div`

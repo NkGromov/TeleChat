@@ -1,5 +1,5 @@
 import React from "react";
-import { BurgerBtn } from "./BurderStyle";
+import { BurgerBtn } from "./ButtonStyle";
 
 const Burger = () => {
     return (

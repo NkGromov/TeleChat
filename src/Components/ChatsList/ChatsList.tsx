@@ -1,18 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import img from "../../Image/eraser.svg";
+import { ChatActions } from "../../Redux/ChatsReducer";
+import { AppStateType } from "../../Redux/store";
 import { ChatAvatar, ChatButton, ChatItem, ChatList, Name, Text, TextWrapper, Time, TopText } from "./ChatsListStyle";
 type itemProps = {
     name: string;
     text: string;
 };
 const Chats = () => {
+    const dispatch = useDispatch();
+    const chats = useSelector((state: AppStateType) => state.ChatsReducer.chats);
+    useEffect(() => {
+        dispatch(ChatActions.chats());
+    }, []);
     return (
         <ChatList>
-            <Item name="Александр" text="сообщение" />
-            <Item name="Сергей" text="сообщение" />
-            <Item name="Евгений" text="сообщение" />
-            <Item name="Ксения" text="сообщение" />
-            <Item name="Мария" text="сообщение" />
+            {chats.map((el) => (
+                <Item key={el.chatId} name={el.companion.username} text="сообщение" />
+            ))}
         </ChatList>
     );
 };
