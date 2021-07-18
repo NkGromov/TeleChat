@@ -9,7 +9,7 @@ export default class AuthApi {
         return api.post<Auth>("/registration", { username, password, passwordTwo }).then((res) => res.data);
     }
     static async logout() {
-        return api.post<Auth>("/logut");
+        return api.post<Auth>("/logout");
     }
     static async chekAuth() {
         return api.get<Auth>("/refresh").then((res) => res.data);

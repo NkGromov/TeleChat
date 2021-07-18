@@ -1,3 +1,4 @@
+import { ThemeKey } from "../Types/Themes";
 import { User } from "../Types/User";
 import { InferActionsTypes } from "./store";
 
@@ -17,6 +18,7 @@ const UserReducer = (state = initialState, action: ActionsTypes): initialStateDr
             return { ...state, isAuth: action.auth };
         case "USER_SET_FETCH":
             return { ...state, isFetching: action.isFetch };
+
         default:
             return state;
     }
@@ -29,5 +31,7 @@ export const UserActions = {
     login: (username: string, password: string) => ({ type: "USER_LOGIN", username, password } as const),
     auth: () => ({ type: "USER_AUTH" } as const),
     registration: (username: string, password: string, passwordTwo: string) => ({ type: "USER_REGISTRATION", username, password, passwordTwo } as const),
+    changeTheme: (theme: ThemeKey) => ({ type: "USER_SET_THEME", theme } as const),
+    logout: () => ({ type: "USER_LOGOUT" } as const),
 };
 export default UserReducer;

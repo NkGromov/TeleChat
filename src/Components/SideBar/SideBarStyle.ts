@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const SideBarWrapper = styled.div`
-    background-color: #254b6e;
+    background-color: ${(props) => props.theme.light};
+    position: relative;
 `;
 
 export const SearshWrapper = styled.div`

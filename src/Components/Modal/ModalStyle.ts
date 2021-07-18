@@ -10,7 +10,7 @@ export const ModalWrapper = styled.div`
     backdrop-filter: blur(8px) brightness(0.5);
 `;
 export const ModalContent = styled.div`
-    background-color: #254b6e;
+    background-color: ${(props) => props.theme.light};
     width: 100%;
     max-width: 400px;
     padding: 20px;
@@ -24,7 +24,7 @@ export const ModalForm = styled.form`
 
 export const ModalTitle = styled.h1`
     margin-bottom: 20px;
-    color: #fff;
+    color: ${(props) => props.theme.text};
     text-align: center;
 `;
 export const ModalButton = styled.button.attrs((props) => ({
@@ -35,5 +35,5 @@ export const ModalButton = styled.button.attrs((props) => ({
     padding: 10px;
     display: block;
     margin: auto;
-    color: #fff;
+    color: ${(props) => props.theme.text};
 `;

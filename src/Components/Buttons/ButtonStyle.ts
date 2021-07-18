@@ -5,7 +5,7 @@ export const BurgerBtn = styled.button`
     span {
         width: 80%;
         height: 3px;
-        background-color: #1b3650;
+        background-color: ${(props) => props.theme.mark};
         display: block;
     }
     span:first-child {
@@ -15,7 +15,7 @@ export const BurgerBtn = styled.button`
         margin-top: 5px;
     }
     &:hover {
-        filter: brightness(1.8);
+        filter: brightness(1.5);
     }
 `;
 export const Button = styled.button`
@@ -25,7 +25,7 @@ export const Button = styled.button`
     img {
         width: 100%;
         height: 100%;
-        fill: #4890d47f;
-        color: #4890d47f;
+        fill: ${(props) => props.theme.mark};
+        color: ${(props) => props.theme.mark};
     }
 `;

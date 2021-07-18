@@ -1,9 +1,11 @@
 import React from "react";
 import { BurgerBtn } from "./ButtonStyle";
-
-const Burger = () => {
+type props = {
+    onClick: () => void;
+};
+const Burger: React.FC<props> = ({ onClick }) => {
     return (
-        <BurgerBtn>
+        <BurgerBtn onClick={onClick}>
             <span></span>
             <span></span>
             <span></span>

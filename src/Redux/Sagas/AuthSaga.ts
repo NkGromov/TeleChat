@@ -23,8 +23,14 @@ function* auth() {
     yield put(UserActions.setUser(user));
     yield put(UserActions.setAuth(true));
 }
+function* logut() {
+    yield call(AuthApi.logout);
+    localStorage.removeItem("token");
+    yield put(UserActions.setAuth(false));
+}
 export function* authWatcher() {
     yield takeEvery("USER_LOGIN", login);
     yield takeEvery("USER_REGISTRATION", registration);
     yield takeEvery("USER_AUTH", auth);
+    yield takeEvery("USER_LOGOUT", logut);
 }

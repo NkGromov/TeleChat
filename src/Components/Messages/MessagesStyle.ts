@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const MessagesList = styled.ul`
     padding: 20px;
-    background-color: #1b3650;
+    background-color: ${(props) => props.theme.dark};
     overflow-y: auto;
     max-height: 840px;
     height: inherit;
@@ -10,13 +10,13 @@ export const MessagesList = styled.ul`
 
 export const Message = styled.li`
     padding: 20px;
-    background-color: #254b6e;
+    background-color: ${(props) => props.theme.light};
     border-radius: 5px;
     padding: 10px;
     font-size: 18px;
     width: fit-content;
     line-height: 21px;
-    color: #ffffff;
+    color: ${(props) => props.theme.text};
     margin-top: 20px;
     max-width: 90%;
     display: flex;
@@ -24,6 +24,6 @@ export const Message = styled.li`
     justify-content: space-between;
 `;
 export const MyMessage = styled(Message)`
-    background-color: #4890d47f;
+    background-color: ${(props) => props.theme.mark};
     float: right;
 `;

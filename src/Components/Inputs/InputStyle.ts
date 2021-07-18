@@ -6,7 +6,7 @@ export const Inp = styled.input.attrs((props) => ({
     value: props.value,
     onChange: props.onChange,
 }))`
-    background-color: ${(props) => props.color || "#fff"};
+    background-color: ${(props) => props.color};
     width: 100%;
     padding: 5px 10px;
     font-size: 16px;

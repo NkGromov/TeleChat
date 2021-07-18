@@ -1,9 +1,9 @@
+import { ThemeKey } from "./Themes";
+
 export type User = {
     id: number;
     username: string;
     avatar: null | string;
     date_created: Date;
-    theme_color: Theme;
+    theme_color: ThemeKey;
 };
-
-export type Theme = "dark" | "light";
