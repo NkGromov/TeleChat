@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const MessagesList = styled.ul`
-    padding: 20px;
     background-color: ${(props) => props.theme.dark};
-    overflow-y: auto;
     max-height: 840px;
     height: inherit;
+    display: flex;
+    flex-direction: column;
 `;
 
 export const Message = styled.li`
@@ -20,10 +20,14 @@ export const Message = styled.li`
     margin-top: 20px;
     max-width: 90%;
     display: flex;
+    gap: 20px;
     align-items: flex-end;
     justify-content: space-between;
+    &:first-child {
+        margin-top: auto;
+    }
 `;
 export const MyMessage = styled(Message)`
     background-color: ${(props) => props.theme.mark};
-    float: right;
+    align-self: flex-end;
 `;

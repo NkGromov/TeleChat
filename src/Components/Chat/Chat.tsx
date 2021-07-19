@@ -2,8 +2,8 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { AppStateType } from "../../Redux/store";
 import SendButton from "../Buttons/SendButton";
-import { Name } from "../ChatsList/ChatsListStyle";
-import SingleInput from "../Forms/SingleInput";
+import { Name } from "../ChatList/ChatListStyle";
+import ChatForm from "../Forms/ChatForm";
 import Mesages from "../Messages/Messages";
 import { Border, ChatWrapper } from "./ChatStyle";
 type props = {
@@ -19,7 +19,7 @@ const Chat: React.FC<props> = ({ name, id }) => {
             </Border>
             <Mesages id={id} name={name} />
             <Border>
-                <SingleInput color="transparent" />
+                <ChatForm isActive={isActive === id ? true : false} />
                 <SendButton />
             </Border>
         </ChatWrapper>

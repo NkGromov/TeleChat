@@ -14,7 +14,7 @@ export const Themes = {
         colors: {
             light: "#ABE8E4",
             dark: "#80ADAA",
-            mark: "#ABE8E4",
+            mark: "#7bd6d0",
             text: "#000000",
             textGrey: "#8495a9",
         } as Color,

@@ -37,7 +37,7 @@ export const Global = createGlobalStyle`
 `;
 export const Grid = styled.div`
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 450px 2fr;
     width: 100vw;
     height: 100vh;
 `;

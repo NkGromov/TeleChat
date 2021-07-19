@@ -1,6 +1,6 @@
 import React from "react";
 import { IinputForm } from "../../Types/Inputs";
-import { Name } from "../ChatsList/ChatsListStyle";
+import { Name } from "../ChatList/ChatListStyle";
 import Input from "./Input";
 import { InputWrapper } from "./InputStyle";
 

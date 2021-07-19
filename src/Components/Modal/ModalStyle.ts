@@ -1,13 +1,15 @@
 import styled from "styled-components";
 
-export const ModalWrapper = styled.div`
+export const ModalWrapper = styled.div<{ isActive: boolean }>`
     position: fixed;
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(8px) brightness(0.5);
+    transition: 0.5s;
+    visibility: ${(props) => (props.isActive ? "visible" : "hidden")};
+    backdrop-filter: ${(props) => (props.isActive ? "blur(16px) brightness(0.5)" : "initial")};
 `;
 export const ModalContent = styled.div`
     background-color: ${(props) => props.theme.light};

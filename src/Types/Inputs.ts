@@ -1,8 +1,15 @@
-export interface Iinput {
+import { ChangeEvent } from "react";
+
+export interface BasicInput {
     name: string;
     value: string;
     color?: string;
-    onChange: any;
+    onChange: (e: string | ChangeEvent<any>) => void;
+}
+export interface TextArea extends BasicInput {
+    isActive: boolean;
+}
+export interface Iinput extends BasicInput {
     type?: string;
     height?: string;
 }

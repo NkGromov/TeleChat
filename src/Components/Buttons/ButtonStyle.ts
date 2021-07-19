@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 export const BurgerBtn = styled.button`
     width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     span {
         width: 80%;
         height: 3px;

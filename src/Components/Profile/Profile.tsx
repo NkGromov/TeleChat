@@ -2,7 +2,7 @@ import React, { useContext, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppStateType } from "../../Redux/store";
 import { UserActions } from "../../Redux/UserReducer";
-import { ChatAvatar, ChatAvatarDefault, Name } from "../ChatsList/ChatsListStyle";
+import { ChatAvatar, ChatAvatarDefault, Name } from "../ChatList/ChatListStyle";
 import { ProfileContext } from "../SideBar/SideBar";
 import { ProfileBody, ProfileButton, ProfileContainer, ProfileHeader, ProfileWrapper } from "./ProfileStyle";
 type props = {

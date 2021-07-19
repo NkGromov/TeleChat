@@ -19,3 +19,12 @@ export const InputWrapper = styled.div`
     flex-direction: column;
     gap: 5px;
 `;
+export const Area = styled.textarea<{ size?: number }>`
+    resize: none;
+    background-color: ${(props) => props.color || "#ffffff"};
+    font-size: ${(props) => props.size || "20px"};
+    width: 100%;
+    border: none;
+    outline: none;
+    max-height: 40px;
+`;

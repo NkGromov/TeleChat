@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { AppStateType } from "../../Redux/store";
 import Burger from "../Buttons/Burger";
-import ChatsList from "../ChatsList/ChatsList";
-import SingleInput from "../Forms/SingleInput";
+import ChatsList from "../ChatList/ChatList";
+import SearchForm from "../Forms/SearchForm";
 import Profile from "../Profile/Profile";
 import { BurgerWrapper, SearshWrapper, SideBarWrapper } from "./SideBarStyle";
 export const ProfileContext = React.createContext(false);
@@ -20,7 +20,7 @@ const SideBar = () => {
                     <BurgerWrapper>
                         <Burger onClick={changeOpenProfile} />
                     </BurgerWrapper>
-                    <SingleInput color="#fff" />
+                    <SearchForm />
                 </SearshWrapper>
                 <ChatsList />
                 {isAuth && <Profile setIsActive={changeOpenProfile} />}

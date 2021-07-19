@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ProfileContainer = styled.div`
     height: 100%;
-    width: 25%;
+    width: 390px;
     background-color: ${(props) => props.theme.light};
     transition: 0.3s;
 `;

@@ -6,19 +6,17 @@ export const ChatList = styled.ul`
     z-index: 0;
 `;
 export const ChatItem = styled.li``;
-export const ChatButton = styled.button`
+export const ChatButton = styled.button<{ isActive: boolean }>`
     padding: 20px;
     display: flex;
     align-items: center;
     width: 100%;
-    &:hover {
-        background-color: #c4c4c452;
+    background-color: ${(props) => props.isActive && props.theme.mark};
+    span {
+        color: ${(props) => props.isActive && props.theme.text};
     }
-    &:focus {
-        background-color: ${(props) => props.theme.mark};
-        span {
-            color: ${(props) => props.theme.text};
-        }
+    &:hover {
+        background-color: ${(props) => (props.isActive ? props.theme.mark : "#c4c4c452")};
     }
 `;
 export const ChatAvatar = styled.img`
@@ -51,6 +49,9 @@ export const TextWrapper = styled.div`
     line-height: 21px;
     color: ${(props) => props.theme.text};
     width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 `;
 export const TopText = styled.div`
     display: flex;
@@ -74,5 +75,4 @@ export const Text = styled.span<{ size?: string; marginTop?: string }>`
     line-height: 21px;
     color: ${(props) => props.color || props.theme.text};
     text-align: start;
-    max-width: 90%;
 `;
