@@ -33,3 +33,9 @@ export const Button = styled.button`
         color: ${(props) => props.theme.mark};
     }
 `;
+export const ButtonBack = styled(Button)`
+    display: none;
+    @media (max-width: 1024px) {
+        display: initial;
+    }
+`;

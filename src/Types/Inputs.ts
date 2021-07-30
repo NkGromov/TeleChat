@@ -5,6 +5,7 @@ export interface BasicInput {
     value: string;
     color?: string;
     onChange: (e: string | ChangeEvent<any>) => void;
+    onBlur: (e: string | ChangeEvent<any>) => void;
 }
 export interface TextArea extends BasicInput {
     isActive: boolean;
@@ -15,4 +16,5 @@ export interface Iinput extends BasicInput {
 }
 export interface IinputForm extends Iinput {
     nameInp: string;
+    errors?: string;
 }

@@ -1,4 +1,5 @@
 import { Companion } from "../Types/Chats";
+import { AuthErrors, ErrorsObject } from "../Types/Errors";
 import { ThemeKey } from "../Types/Themes";
 import { User } from "../Types/User";
 import { InferActionsTypes } from "./store";
@@ -8,6 +9,7 @@ const initialState = {
     isAuth: false,
     isFetching: false,
     findUsers: [] as Companion[],
+    errors: {} as AuthErrors,
 };
 
 export type initialStateDraw = typeof initialState;
@@ -24,6 +26,8 @@ const UserReducer = (state = initialState, action: ActionsTypes): initialStateDr
             return { ...state, user: { ...state.user, theme_color: action.theme } };
         case "USER_SET_FIND_USERS":
             return { ...state, findUsers: action.users };
+        case "USER_SET_ERROR":
+            return { ...state, errors: { ...state.errors, registration: action.registration, login: action.login } };
         default:
             return state;
     }
@@ -39,6 +43,7 @@ export const UserActions = {
     registration: (username: string, password: string, passwordTwo: string) => ({ type: "USER_REGISTRATION", username, password, passwordTwo } as const),
     changeTheme: (theme: ThemeKey) => ({ type: "USER_SET_THEME", theme } as const),
     initTheme: (theme: ThemeKey) => ({ type: "USER_INIT_THEME", theme } as const),
+    setErrors: (registration: ErrorsObject | null, login: ErrorsObject | null) => ({ type: "USER_SET_ERROR", registration, login } as const),
     findUsers: (name: string) => ({ type: "USER_FIND_OTHER_USERS", name } as const),
     logout: () => ({ type: "USER_LOGOUT" } as const),
 };

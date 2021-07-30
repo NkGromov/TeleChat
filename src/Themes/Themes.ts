@@ -8,6 +8,7 @@ export const Themes = {
             mark: "#4890d47f",
             text: "#ffffff",
             textGrey: "#8495a9",
+            errorColor: "#f71f1f",
         } as Color,
     },
     light: {
@@ -17,6 +18,7 @@ export const Themes = {
             mark: "#7bd6d0",
             text: "#000000",
             textGrey: "#8495a9",
+            errorColor: "#f71f1f",
         } as Color,
     },
 };

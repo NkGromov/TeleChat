@@ -15,7 +15,7 @@ function* findUsers({ name }: find) {
     yield put(UserActions.setFindUsers(data));
 }
 
-export function* UserWatcher() {
+export function* userWatcher() {
     yield takeEvery("USER_SET_THEME", theme);
     yield takeEvery("USER_FIND_OTHER_USERS", findUsers);
 }

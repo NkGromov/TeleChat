@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Panel = styled.div`
+export const Panel = styled.div<{ toggle?: boolean }>`
     width: 100%;
     height: 100%;
     background-color: ${(props) => props.theme.dark};
@@ -8,6 +8,10 @@ export const Panel = styled.div`
     justify-content: center;
     align-items: center;
     position: relative;
+    @media (max-width: 1024px) {
+        position: absolute;
+        transform: ${(props) => (props.toggle ? "translateX(0)" : "translateX(100%)")};
+    }
 `;
 export const Direct = styled.span`
     padding: 8px;

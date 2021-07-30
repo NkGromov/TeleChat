@@ -2,9 +2,11 @@ import React, { useContext, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppStateType } from "../../Redux/store";
 import { UserActions } from "../../Redux/UserReducer";
+import { Toggle, ToggleWrapper } from "../App/AppStyle";
 import { ChatAvatar, ChatAvatarDefault, Name } from "../ChatList/ChatListStyle";
 import { ProfileContext } from "../SideBar/SideBar";
-import { ProfileBody, ProfileButton, ProfileContainer, ProfileHeader, ProfileWrapper } from "./ProfileStyle";
+import { ExitSvg, NightSvg, ProfileBody, ProfileButton, ProfileContainer, ProfileHeader, ProfileWrapper } from "./ProfileStyle";
+
 type props = {
     setIsActive: () => void;
 };
@@ -34,8 +36,16 @@ const Profile: React.FC<props> = ({ setIsActive }) => {
                     <Name>{user.username}</Name>
                 </ProfileHeader>
                 <ProfileBody>
-                    <ProfileButton onClick={changeTheme}>{user.theme_color === "light" ? "Темня тема" : "Светлая тема"}</ProfileButton>
-                    <ProfileButton onClick={logout}>Выйти</ProfileButton>
+                    <ProfileButton onClick={changeTheme}>
+                        <NightSvg />
+                        <span>Темная тема</span>
+                        <ToggleWrapper isActive={user.theme_color === "dark" ? true : false}>
+                            <Toggle />
+                        </ToggleWrapper>
+                    </ProfileButton>
+                    <ProfileButton onClick={logout}>
+                        <ExitSvg /> <span>Выйти</span>
+                    </ProfileButton>
                 </ProfileBody>
             </ProfileContainer>
         </ProfileWrapper>

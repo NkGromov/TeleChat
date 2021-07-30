@@ -1,27 +1,30 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { AppStateType } from "../../Redux/store";
-import SendButton from "../Buttons/SendButton";
+import { useDispatch } from "react-redux";
+import arrow from "../../Image/left-arrow.svg";
+import { ChatActions } from "../../Redux/ChatsReducer";
+import { ButtonBack } from "../Buttons/ButtonStyle";
 import { Name } from "../ChatList/ChatListStyle";
 import ChatForm from "../Forms/ChatForm";
-import Mesages from "../Messages/Messages";
+import Messages from "../Messages/Messages";
 import { Border, ChatWrapper } from "./ChatStyle";
 type props = {
-    id: number;
     name: string;
 };
-const Chat: React.FC<props> = ({ name, id }) => {
-    const isActive = useSelector((state: AppStateType) => state.ChatsReducer.chatIdIsActive);
+const Chat: React.FC<props> = ({ name }) => {
+    const dispath = useDispatch();
+    const back = () => {
+        dispath(ChatActions.setActiveChat(null));
+    };
     return (
-        <ChatWrapper isActive={isActive === id ? true : false}>
+        <ChatWrapper>
             <Border>
+                <ButtonBack onClick={back}>
+                    <img src={arrow} alt="назад" />
+                </ButtonBack>
                 <Name size="18px">{name}</Name>
             </Border>
-            <Mesages id={id} name={name} />
-            <Border>
-                <ChatForm isActive={isActive === id ? true : false} />
-                <SendButton />
-            </Border>
+            <Messages />
+            <ChatForm />
         </ChatWrapper>
     );
 };

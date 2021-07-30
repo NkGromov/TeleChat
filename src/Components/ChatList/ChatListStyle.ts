@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const ChatList = styled.ul`
     max-height: 890px;
-    overflow-y: auto;
     z-index: 0;
 `;
 export const ChatItem = styled.li``;
@@ -45,6 +44,7 @@ export const ChatAvatarDefault = styled.div`
 export const TextWrapper = styled.div`
     display: block;
     font-weight: 700;
+    position: relative;
     font-size: 18px;
     line-height: 21px;
     color: ${(props) => props.theme.text};
@@ -68,11 +68,32 @@ export const Time = styled.span`
     font-size: 14px;
     color: ${(props) => props.theme.textGrey};
 `;
-export const Text = styled.span<{ size?: string; marginTop?: string }>`
+export const Text = styled.span<{ size?: string; marginTop?: string; dots?: boolean }>`
     display: block;
     margin-top: ${(props) => props.marginTop || "0"};
     font-size: ${(props) => props.size || "16px"};
     line-height: 21px;
     color: ${(props) => props.color || props.theme.text};
-    text-align: start;
+    word-break: break-all;
+    ${(props) =>
+        props.dots
+            ? ` text-align: start;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;`
+            : ""}
+`;
+
+export const Notifications = styled.span`
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 14px;
+    border-radius: 50%;
+    background-color: ${(props) => props.theme.mark};
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;

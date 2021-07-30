@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const SideBarWrapper = styled.div`
     background-color: ${(props) => props.theme.light};
     position: relative;
-    max-width: 450px;
 `;
 
 export const SearshWrapper = styled.div`

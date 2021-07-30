@@ -7,11 +7,12 @@ import { ModalButton, ModalContent, ModalTitle, ModalWrapper } from "./ModalStyl
 
 const Modal = () => {
     const isAuth = useSelector((state: AppStateType) => state.UserReducer.isAuth);
+    const isInit = useSelector((state: AppStateType) => state.AppReducer.isInit);
     const [isRegistration, setIsRegistration] = useState<boolean>(false);
     const changeForm = () => setIsRegistration((props) => !props);
     return (
         <ModalWrapper isActive={!isAuth}>
-            {!isAuth && (
+            {!isAuth && isInit && (
                 <ModalContent>
                     <ModalTitle>TELECHAT</ModalTitle>
                     {isRegistration ? <RegistrationForm /> : <LoginForm />}

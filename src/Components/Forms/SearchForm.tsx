@@ -2,7 +2,7 @@ import { useFormik } from "formik";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { UserActions } from "../../Redux/UserReducer";
-import Input from "../Inputs/Input";
+import { Input } from "../Inputs/InputStyle";
 type props = {
     color?: string;
     type?: string;
@@ -30,6 +30,7 @@ const SearchForm: React.FC<props> = ({ type, color, height }) => {
                 single.submitForm();
             }}
             height={height}
+            placeholder="Искать"
         ></Input>
     );
 };

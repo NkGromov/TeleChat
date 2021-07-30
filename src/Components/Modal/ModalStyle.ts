@@ -8,6 +8,7 @@ export const ModalWrapper = styled.div<{ isActive: boolean }>`
     justify-content: center;
     align-items: center;
     transition: 0.5s;
+    z-index: 100000;
     visibility: ${(props) => (props.isActive ? "visible" : "hidden")};
     backdrop-filter: ${(props) => (props.isActive ? "blur(16px) brightness(0.5)" : "initial")};
 `;
@@ -22,6 +23,7 @@ export const ModalForm = styled.form`
     display: flex;
     flex-direction: column;
     gap: 20px;
+    z-index: 1000;
 `;
 
 export const ModalTitle = styled.h1`
@@ -38,4 +40,11 @@ export const ModalButton = styled.button.attrs((props) => ({
     display: block;
     margin: auto;
     color: ${(props) => props.theme.text};
+    opacity: 0.8;
+    &:hover {
+        opacity: 1;
+    }
+    &:disabled {
+        opacity: 0.4;
+    }
 `;

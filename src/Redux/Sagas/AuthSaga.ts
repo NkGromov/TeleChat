@@ -5,23 +5,38 @@ type login = ReturnType<typeof UserActions.login>;
 type registration = ReturnType<typeof UserActions.registration>;
 
 function* login({ username, password }: login) {
-    const { user, accesToken } = yield call(AuthApi.login, username, password);
-    localStorage.setItem("token", accesToken);
-    yield put(UserActions.setUser(user));
-    yield put(UserActions.setAuth(true));
+    try {
+        const { user, accesToken } = yield call(AuthApi.login, username, password);
+        localStorage.setItem("token", accesToken);
+        yield put(UserActions.setUser(user));
+        yield put(UserActions.setAuth(true));
+    } catch (e) {
+        yield put(UserActions.setErrors(null, { message: e.response.data.message, errors: [] }));
+        console.log(e);
+    }
 }
 function* registration({ username, password, passwordTwo }: registration) {
-    const { user, accesToken } = yield call(AuthApi.registration, username, password, passwordTwo);
-    localStorage.setItem("token", accesToken);
-    yield put(UserActions.setUser(user));
-    yield put(UserActions.setAuth(true));
+    try {
+        const { user, accesToken } = yield call(AuthApi.registration, username, password, passwordTwo);
+        localStorage.setItem("token", accesToken);
+        yield put(UserActions.setUser(user));
+        yield put(UserActions.setAuth(true));
+    } catch (e) {
+        yield put(UserActions.setErrors({ message: e.response.data.message, errors: [] }, null));
+        console.log(e);
+    }
 }
 
-function* auth() {
-    const { user, accesToken } = yield call(AuthApi.chekAuth);
-    localStorage.setItem("token", accesToken);
-    yield put(UserActions.setUser(user));
-    yield put(UserActions.setAuth(true));
+export function* auth() {
+    try {
+        if (!localStorage.getItem("token")) return;
+        const { user, accesToken } = yield call(AuthApi.chekAuth);
+        localStorage.setItem("token", accesToken);
+        yield put(UserActions.setUser(user));
+        yield put(UserActions.setAuth(true));
+    } catch (e) {
+        console.log(e);
+    }
 }
 function* logut() {
     yield call(AuthApi.logout);

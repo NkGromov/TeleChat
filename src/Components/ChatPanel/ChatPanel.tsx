@@ -5,13 +5,11 @@ import Chat from "../Chat/Chat";
 import { Direct, Panel } from "./ChatPanelStyle";
 
 const ChatPanel = () => {
-    const chats = useSelector((state: AppStateType) => state.ChatsReducer.chats);
+    const isActive = useSelector((state: AppStateType) => state.ChatsReducer.chatIdIsActive);
     return (
-        <Panel>
+        <Panel toggle={isActive ? true : false}>
             <Direct>Выберете чат</Direct>
-            {chats.map((el) => (
-                <Chat key={el.chatId} id={el.chatId} name={el.companion.username} />
-            ))}
+            {isActive && <Chat name={isActive.name} />}
         </Panel>
     );
 };
